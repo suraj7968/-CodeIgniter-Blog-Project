@@ -1,4 +1,6 @@
-<?php $this->load->view('admin/header.php'); ?>
+<?php $this->load->view('admin/header.php');
+
+?>
    <!-- Content Wrapper. Contains page content -->
    <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -27,15 +29,20 @@
             <?php if($this->session->flashdata('success') != "" ){ ?>
             <div class="alert alert-success"> <?php echo $this->session->flashdata('success'); ?></div>
             <?php } ?>
+            <?php if($this->session->flashdata('error') != "" ){ ?>
+            <div class="alert alert-danger"> <?php echo $this->session->flashdata('error'); ?></div>
+            <?php } ?>
             <div class="card">
             <div class="card-header">
                 <div class="card-tools float-left" style="margin-top: 10px;">
+                <form action="" method="get">
                   <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control" placeholder="Search">
+                    <input type="text" value="<?php echo $queryString; ?>" name="q" class="form-control" placeholder="Search">
                     <div class="input-group-append">
                       <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                     </div>
                   </div>
+                </form>
                 </div>
                 <div class="card-tools">
                 <a href="<?php echo base_url('admin/Category/create') ?>" class="btn btn-block btn-primary btn-md"><i class="fa-solid fa-plus"></i> Create</a>
@@ -50,50 +57,30 @@
                         <th width="100">Status</th>
                         <th width="160" class="text-center">Action</th>
                     </tr>
+                    <?php if(!empty($categories)){ ?>
+                      <?php foreach ($categories as $categoryRow ) {?>
                     <tr>
-                        <td>1</td>
-                        <td>Fasion</td>
+                        <td><?php echo $categoryRow['id'] ?></td>
+                        <td><?php echo $categoryRow['name'] ?></td>
                         <td>
-                            <span class="badge badge-success">Status</span>
+                            <span class="badge badge-success"><?php if ($categoryRow['status'] == 1) {
+                              echo "Active";
+                            } else
+                            {
+                              echo "Block";
+                            } ?></span>
                         </td>
                         <td class="text-center">
-                            <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square fa-sm"></i> Edit</a>
-                            <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash fa-sm"></i> Delete</a>
+                            <a href="<?php echo base_url('admin/Category/edit/').$categoryRow['id'] ?>" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square fa-sm"></i> Edit</a>
+                            <a href="javascript:void(0)" onclick="deleteCategory(<?php echo $categoryRow['id']; ?>)" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash fa-sm"></i> Delete</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Fasion</td>
-                        <td>
-                            <span class="badge badge-success">Status</span>
-                        </td>
-                        <td class="text-center">
-                            <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square fa-sm"></i> Edit</a>
-                            <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash fa-sm"></i> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Fasion</td>
-                        <td>
-                            <span class="badge badge-success">Status</span>
-                        </td>
-                        <td class="text-center">
-                            <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square fa-sm"></i> Edit</a>
-                            <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash fa-sm"></i> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Fasion</td>
-                        <td>
-                            <span class="badge badge-success">Status</span>
-                        </td>
-                        <td class="text-center">
-                            <a href="" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square fa-sm"></i> Edit</a>
-                            <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash fa-sm"></i> Delete</a>
-                        </td>
-                    </tr>
+                    <?php } ?>
+                    <?php } else { ?>
+                      <tr>
+                        <td colspan="4">Records Not Found</td>
+                      </tr>
+                    <?php } ?>
                 </table>
             </div>
           </div>
@@ -105,3 +92,10 @@
   </div>
   <!-- /.content-wrapper -->
   <?php $this->load->view('admin/footer.php'); ?>
+  <script>
+    function deleteCategory(id) {
+      if (confirm("Are You Sure You Want To Delete This user")) {
+        window.location.href="<?php echo base_url('admin/Category/delete/')?>"+id;
+      }
+    }
+  </script>

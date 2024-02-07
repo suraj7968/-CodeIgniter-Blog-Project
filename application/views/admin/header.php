@@ -42,6 +42,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo base_url() ?>public/admin/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <!-- summernote -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>public/admin/plugins/summernote/summernote-bs4.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -100,13 +102,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url('admin/Home/index') ?>" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="fa-solid fa-gauge"></i>
               Dashboard
             </a>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="fa-solid fa-list"></i>
               <p>
               Categories
                 <i class="right fas fa-angle-left"></i>
@@ -115,13 +117,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?php echo base_url('admin/Category/create') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa-regular fa-hand-point-right"></i>
                   <p>Add Categories</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?php echo base_url('admin/Category/index') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa-regular fa-hand-point-right"></i>
                   <p>View Categories</p>
                 </a>
               </li>
@@ -129,7 +131,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="fa-regular fa-newspaper"></i>
               <p>
               Articles
                 <i class="right fas fa-angle-left"></i>
@@ -137,14 +139,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="<?php echo base_url('admin/Articles/create') ?>" class="nav-link">
+                  <i class="fa-regular fa-hand-point-right"></i>
                   <p>Add Articles</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="<?php echo base_url('admin/Articles/index') ?>" class="nav-link">
+                  <i class="fa-regular fa-hand-point-right"></i>
                   <p>View Articles</p>
                 </a>
               </li>

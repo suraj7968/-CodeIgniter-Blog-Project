@@ -36,6 +36,16 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() ?>public/admin/dist/js/demo.js"></script>
 <!-- page script -->
+<!-- Summernote -->
+<script src="<?php echo base_url() ?>public/admin/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote({
+      height: '400px';
+    })
+  })
+</script>
 
 <script>
   $(function () {

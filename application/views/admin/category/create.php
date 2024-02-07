@@ -35,12 +35,12 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputName1">Name</label>
-                    <input type="text" name="name" class="form-control <?php echo (form_error('name') != "" ) ? "is-invalid" : ""; ?>" id="name" placeholder="Enter Category Name">
+                    <input type="text" name="name" value="<?php echo set_value('name'); ?>" class="form-control <?php echo (form_error('name') != "" ) ? "is-invalid" : ""; ?>" id="name" placeholder="Enter Category Name">
                     <?php echo form_error('name'); ?>
                   </div>
                   <div class="form-group">
                     <label for="image">Image</label>
-                    <input type="file" name="image" class="form-control" id="image">
+                    <input type="file" name="image" class="form-control <?php echo (!empty($errorImageUpload)) ? "is-invalid" : ""; ?>" id="image">
                     <?php echo (!empty($errorImageUpload)) ? $errorImageUpload : ''; ?>
                   </div>
                   <div class="form-group clearfix">
