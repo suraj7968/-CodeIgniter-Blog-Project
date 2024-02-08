@@ -56,6 +56,26 @@
                         <th width="100">Status</th>
                         <th width="160" class="text-center">Action</th>
                     </tr>
+                    <?php if(!empty($articles)){ ?>
+                      <?php foreach ($articles as $article_Row) { ?>
+                     <tr>
+                      <td><?php echo $article_Row['id'] ?></td>
+                      <td><?php echo $article_Row['title'] ?></td>
+                      <td> <span class="badge badge-<?php if($article_Row['status'] == 1 ) { echo 'success'; } else { echo 'danger'; } ?>"><?php if ($article_Row['status'] == 1) {
+                        echo 'Active';
+                      } else { echo 'Block'; } ?></span> </td>
+                      <td>
+                            <a href="<?php echo base_url('admin/Articles/edit/').$article_Row['id'] ?>" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square fa-sm"></i> Edit</a>
+
+                            <a href="javascript:void(0)" onclick="deleteCategory(<?php echo $article_Row['id']; ?>)" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash fa-sm"></i> Delete</a>
+                      </td>
+                     </tr>
+                     <?php } ?>
+                     <?php }  else {?>  
+                      <tr>
+                        <td colspan="4">Records Not Found</td>
+                      </tr>
+                     <?php } ?>
                 </table>
             </div>
           </div>

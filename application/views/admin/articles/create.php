@@ -31,37 +31,44 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="<?php base_url('admin/Category/create') ?>" method="post" role="form" enctype="multipart/form-data" id="quickForm" novalidate="novalidate">
+              <form action="<?php base_url('admin/Articles/create') ?>" method="post" role="form" enctype="multipart/form-data" id="quickForm" novalidate="novalidate">
                 <div class="card-body">
-
                 <div class="form-group">
                     <label for="exampleInputName1">Categories</label>
-                    <select name="category_id" class="form-control" id="category_id">
+                    <select name="category_id" class="form-control <?php echo (form_error('category_id') != "" ) ? "is-invalid" : ""; ?>" id="category_id">
                         <option value="">Select a Category</option>
                         <?php if (!empty($categories)) {
                             foreach ($categories as $category) { ?>
-                                    <option value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
+                                    <option <?php echo set_select('category_id',$category['id'],false); ?> value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
                             <?php
                             }
                         } ?>
                     </select>
+                    <?php echo form_error('category_id'); ?>
                   </div>
 
                   <div class="form-group">
                     <label for="exampleInputName1">Title</label>
-                    <input type="text" name="title" value="" class="form-control" id="title" placeholder="Enter Article title">
+                    <input type="text" name="title" value="<?php echo set_value('title'); ?>" class="form-control <?php echo (form_error('title') != "" ) ? "is-invalid" : ""; ?>" id="title" placeholder="Enter Article title">
+                    <?php echo form_error('title'); ?>
                   </div>
 
                   <div class="form-group">
                     <label for="exampleInputName1">Description</label>
-                    <textarea class="textarea" placeholder="Place some text here"
+                    <textarea class="textarea" name="description" id="description" placeholder="Place some text here"
                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                 </div>
 
+                <div class="form-group">
+                    <label for="exampleInputName1">Author</label>
+                    <input type="text" name="author" value="<?php echo set_value('author'); ?>" class="form-control <?php echo (form_error('author') != "" ) ? "is-invalid" : ""; ?>" id="author" placeholder="Enter Author Name">
+                    <?php echo form_error('author'); ?>
+                  </div>
+
                   <div class="form-group">
                     <label for="image">Image</label>
-                    <input type="file" name="image" class="form-control" id="image">
-                    
+                    <input type="file" name="image" class="form-control <?php echo (!empty($imageError)) ? "is-invalid" : ""; ?>" id="image">
+                    <?php if(!empty($imageError)) echo $imageError ?>
                   </div>
                   <div class="form-group clearfix">
                       <div class="icheck-primary d-inline" style="margin-right: 20px;">

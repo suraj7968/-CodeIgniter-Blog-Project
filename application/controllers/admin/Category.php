@@ -10,7 +10,6 @@ class Category extends CI_Controller {
         $categories = $this->Category_model->getCategories($params);
         $data['categories'] = $categories;
         $data['queryString'] = $queryString;
-
 		$this->load->view('admin/category/list',$data);
 
 	} 
