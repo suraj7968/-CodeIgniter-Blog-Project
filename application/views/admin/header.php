@@ -44,8 +44,110 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo base_url() ?>public/admin/plugins/summernote/summernote-bs4.css">
+
+  <!-- Ekko Lightbox -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>public/plugins/ekko-lightbox/ekko-lightbox.css">
+
+  <style>
+    /* .popup{
+    width: 900px;
+    margin: auto;
+    text-align: center
+} */
+.popup img{
+    width: 60px;
+    height: 60px;
+    cursor: pointer
+}
+.show{
+    z-index: 999;
+    display: none;
+}
+.show .overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.66);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.show .img-show{
+    width: 600px;
+    height: 400px;
+    background: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    
+}
+.img-show span{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+    cursor: pointer;
+}
+.img-show img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*End style*/
+
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff; /* Set the background color of the preloader */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.preloader-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+    .htc__shopping__cart a span.htc__wishlist {
+    background: #c43b68;
+    border-radius: 100%;
+    color: #fff;
+    font-size: 9px;
+    height: 17px;
+    line-height: 19px;
+    position: absolute;
+    right: -4px;
+    text-align: center;
+    top: -4px;
+    width: 17px;
+    
+}
+
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
+<div id="preloader">
+    <div class="preloader-spinner"></div>
+</div>
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -60,15 +162,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-            Welcome,<strong>Administrator</strong>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('admin/login/logout') ?>">
+            <strong>Logout</strong>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <div class="dropdown-divider"></div>
-          <a href="<?php echo base_url('admin/login/logout') ?>" class="dropdown-item">
-            Logout
-          </a>
       </li>
     </ul>
   </nav>

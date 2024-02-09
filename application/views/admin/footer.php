@@ -38,6 +38,10 @@
 <!-- page script -->
 <!-- Summernote -->
 <script src="<?php echo base_url() ?>public/admin/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- Ekko Lightbox -->
+<script src="<?php echo base_url() ?>public/admin/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script src="<?php echo base_url() ?>public/admin/plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- Page specific script -->
 <script>
   $(function () {
     // Summernote
@@ -61,6 +65,28 @@
       "responsive": true,
     });
   });
+</script>
+<script>
+  $(function () {
+    "use strict";
+    
+    $(".popup img").click(function () {
+        var $src = $(this).attr("src");
+        $(".show").fadeIn();
+        $(".img-show img").attr("src", $src);
+    });
+    
+    $("span, .overlay").click(function () {
+        $(".show").fadeOut();
+    });
+    
+});
+</script>
+<script>
+    $(window).on('load', function() {
+        // Hide the preloader once the page is fully loaded
+        $('#preloader').fadeOut('slow');
+    });
 </script>
 </body>
 </html>

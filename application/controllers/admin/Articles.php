@@ -2,15 +2,46 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Articles extends CI_Controller {
-	public function index()
+	public function index($page=1)
 	{
 		$this->load->model('Article_model');
-		$queryString = $this->input->get('q');
-		$params['queryString'] = $queryString;
-		$articles = $this->Article_model->getArticle($params);
+		$this->load->library('pagination');
+		$config['base_url'] = base_url('admin/articles/index');
+		$config['total_rows'] = $this->Article_model->getArticlesCount();
+		$config['per_page'] = 7;
+		$config['use_page_numbers'] = true;
+
+		$config['full_tag_open'] = "<ul class='pagination'>";
+		$config['full_tag_close'] = "</ul>";
+		$config['num_tag_open'] = "<li class='page-item'>";
+		$config['num_tag_close'] = "</li>";
+		$config['cur_tag_open'] = "<li class='disabled page-item'><li class='active page-item'> <a class='page-link' href='#'>";
+		$config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+		$config['next_tag_open'] = "<li class='page-item'>";
+		$config['next_tag_close'] = "</li>";
+		$config['prev_tag_open'] = "<li class='page-item'>";
+		$config['prev_tag_close'] = "</li>";
+		$config['first_tag_open'] = "<li class='page-item'>";
+		$config['first_tag_close'] = "</li>";
+		$config['last_tag_open'] = "<li class='page-item'>";
+		$config['last_tag_close'] = "</li>";
+		$config['attributes'] = array('class' => 'page-link');
+
+		$this->pagination->initialize($config);
+		$pagination_links = $this->pagination->create_links();
+
+		
+
+		// $queryString = $this->input->get('q');
+		// $params['queryString'] = $queryString;
+		$param['offset'] = $config['per_page'];
+		$param['limit'] = ($page*$config['per_page'])-$config['per_page'];
+
+		$articles = $this->Article_model->getArticle($param);
 		$data['articles'] = $articles;
-		$data['queryString'] = $queryString;
-		$this->load->view('admin/Articles/list',$data);
+		$data['pagination_links'] = $pagination_links;
+		// $data['queryString'] = $queryString;
+		$this->load->view('admin/Articles/list',$data,);
 	}
     public function create()
 	{
@@ -50,6 +81,7 @@ class Articles extends CI_Controller {
 					$formArray['author'] = $this->input->post('author');
 					$formArray['status'] = $this->input->post('status');
 					$formArray['created_at'] = date('Y-m-d H:i:s');
+					
 					$this->Article_model->addArticle($formArray);
 					$this->session->set_flashdata('success','Articles Added Successfuly');
 					redirect(base_url('admin/Articles/index'));
@@ -130,6 +162,9 @@ class Articles extends CI_Controller {
 					$formArray['author'] = $this->input->post('author');
 					$formArray['status'] = $this->input->post('status');
 					$formArray['updated_at'] = date('Y-m-d H:i:s');
+					echo "<pre>";
+					print_r($formArray['description']);
+					echo "</pre>";die();
 					$this->Article_model->updateArticle($id,$formArray);
 
 					if (file_exists('./public/uploads/articles/'.$articles[0]['image'])) {
@@ -174,8 +209,28 @@ class Articles extends CI_Controller {
 		
 		
 	}
-    public function delete()
+    public function delete($id)
 	{
+		$this->load->model('Article_model');
+        $articles = $this->Article_model->deleteArticle($id);
+        
+        if (empty($articles)) {
+            $this->session->set_flashdata('error','Article Not Found');
+            redirect(base_url('admin/Articles/index'));
+        }
+
+        if (file_exists('./public/uploads/articles/'.$articles[0]['image'])) {
+            unlink('./public/uploads/articles/'.$articles[0]['image']);
+        }
+        if (file_exists('./public/uploads/articles/thumb_front/'.$articles[0]['image'])) {
+            unlink('./public/uploads/articles/thumb_front/'.$articles[0]['image']);
+        }
+		if (file_exists('./public/uploads/articles/thumb_admin/'.$articles[0]['image'])) {
+            unlink('./public/uploads/articles/thumb_admin/'.$articles[0]['image']);
+        }
+        $this->Article_model->delete($id);
+        $this->session->set_flashdata('success','articles Deleted Successfuly');
+        redirect(base_url('admin/Articles/index'));
 		
 	}
 }

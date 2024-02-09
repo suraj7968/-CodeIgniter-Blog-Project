@@ -1,4 +1,5 @@
 <?php $this->load->view('admin/header.php');
+
 ?>
    <!-- Content Wrapper. Contains page content -->
    <div class="content-wrapper">
@@ -31,14 +32,14 @@
             <?php if($this->session->flashdata('error') != "" ){ ?>
             <div class="alert alert-danger"> <?php echo $this->session->flashdata('error'); ?></div>
             <?php } ?>
-            <div class="card">
+            <div class="container-fluid">
             <div class="card-header">
                 <div class="card-tools float-left" style="margin-top: 10px;">
                 <form action="" method="get">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" value="" name="q" class="form-control" placeholder="Search">
                     <div class="input-group-append">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                      <button style="z-index: 0;" type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                     </div>
                   </div>
                 </form>
@@ -48,11 +49,14 @@
                 </div>
               </div>
             </div>
-            <div class="card-body">
+            <div class="container-fluid">
                 <table class="table">
                     <tr>
                         <th width="50">#</th>
-                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Created</th>
                         <th width="100">Status</th>
                         <th width="160" class="text-center">Action</th>
                     </tr>
@@ -60,10 +64,32 @@
                       <?php foreach ($articles as $article_Row) { ?>
                      <tr>
                       <td><?php echo $article_Row['id'] ?></td>
+                      <td>
+                      <div class="popup">
+                    <img src="<?php if (!empty($article_Row['image'])) {
+                      echo base_url().'public/uploads/articles/'. $article_Row['image'];
+                    } else
+                    {
+                      echo base_url().'public/uploads/articles/noimage.jpg';
+                    }
+                     ?>">
+                  </div>
+                  <div class="show">
+                    <div class="overlay"></div>
+                    <div class="img-show">
+                      <span>X</span>
+                      <img src="">
+                    </div>
+                  </div>
+                  <!--End image popup-->
+                    </td>
                       <td><?php echo $article_Row['title'] ?></td>
+                      <td><?php echo $article_Row['author'] ?></td>
+                      <td><?php echo $article_Row['created_at'] ?></td>
                       <td> <span class="badge badge-<?php if($article_Row['status'] == 1 ) { echo 'success'; } else { echo 'danger'; } ?>"><?php if ($article_Row['status'] == 1) {
                         echo 'Active';
                       } else { echo 'Block'; } ?></span> </td>
+                      
                       <td>
                             <a href="<?php echo base_url('admin/Articles/edit/').$article_Row['id'] ?>" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square fa-sm"></i> Edit</a>
 
@@ -76,7 +102,11 @@
                         <td colspan="4">Records Not Found</td>
                       </tr>
                      <?php } ?>
+
                 </table>
+                <div>
+                  <?php echo $pagination_links ?>
+                </div>
             </div>
           </div>
         </div>
@@ -90,7 +120,7 @@
   <script>
     function deleteCategory(id) {
       if (confirm("Are You Sure You Want To Delete This user")) {
-        window.location.href="<?php echo base_url('admin/Category/delete/')?>"+id;
+        window.location.href="<?php echo base_url('admin/Articles/delete/')?>"+id;
       }
     }
   </script>
