@@ -1,215 +1,238 @@
-<!doctype html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Codeignter</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-      <link rel="stylesheet" href="<?php echo base_url('public/css/style.css') ?>">
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-   </head>
-   <body>
-      <header class="bg-light">
-         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light pt-3 pb-3">
-               <div class="container-fluid">
-                  <div class="row w-100">
-                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <div class="col">
-                           <a class="navbar-brand" href="#">Codeigniter Project</a>
+
+<?php $this->load->view('front/header.php'); ?>
+            <div id="slider">
+                <div class="flexslider">
+                  <ul class="slides">
+                    <li>
+                        <div class="slider-caption">
+                            <h1>Delicious Meals</h1>
+                            <p>Donec justo dui, semper vitae aliquam euzali, ornare pretium enim. Maecenas molestie diam
+                            <br><br>eget tellus luctus fermentum.</p>
+                            <a href="single-post.html">Shop Now</a>
                         </div>
-                        <ul class="navbar-nav ms-auto">
-                           <li class="nav-item">
-                              <a class="nav-link" href="#">HOME</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="#">ABOUT US</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="#">SERVICES</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="#">BLOG</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="#">CATEGORIES</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="#">CONTACT US</a>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </nav>
-         </div>
-      </header>
-      <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
-         <div class="carousel-inner">
-            <div class="carousel-item active">
-               <img src="<?php echo base_url('public/images/slide1.jpg') ?>" class="d-block w-100 h-100" alt="..." style="object-fit: cover;">
+                      <img src="<?php echo base_url('public/') ?>images/slide1.jpg" alt="" />
+                    </li>
+                    <li>
+                        <div class="slider-caption">
+                            <h1>Ice-cream Menus</h1>
+                            <p>Nulla id iaculis ligula. Vivamus mattis quam eget urna tincidunt consequat. Nullam 
+                            <br><br>consectetur tempor neque vitae iaculis. Aliquam erat volutpat.</p>
+                            <a href="single-post.html">More Details</a>
+                        </div>
+                      <img src="<?php echo base_url('public/') ?>images/slide2.jpg" alt="" />
+                    </li>
+                    <li>
+                        <div class="slider-caption">
+                            <h1>Healthy Drinks</h1>
+                            <p>Maecenas fermentum est ut elementum vulputate. Ut vel consequat urna. Ut aliquet 
+                            <br><br>ornare massa, quis dapibus quam condimentum id.</p>
+                            <a href="single-post.html">Get Ready</a>
+                        </div>
+                      <img src="<?php echo base_url('public/') ?>images/slide3.jpg" alt="" />
+                    </li>
+                  </ul>
+                </div>
             </div>
-            <div class="carousel-item">
-               <img src="<?php echo base_url('public/images/slide2.jpg') ?>" class="d-block w-100 h-100" alt="..." style="object-fit: cover;">
-            </div>
-            <div class="carousel-item">
-               <img src="<?php echo base_url('public/images/slide3.jpg') ?>" class="d-block w-100 h-100" alt="..." style="object-fit: cover;">
-            </div>
-         </div>
-         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-         <span class="visually-hidden">Previous</span>
-         </button>
-         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-         <span class="visually-hidden">Next</span>
-         </button>
-      </div>
-      <div class="container pt-5 pb-5">
-         <h3 class="pb-3">About Company</h3>
-         <p class="text-muted" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repellat molestias quis adipisci enim, expedita saepe dolorum quos a minima, sapiente voluptate, porro officiis. Quis quisquam alias minus vel aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos voluptates libero ipsum corrupti quod, nisi quae reiciendis ab, maiores perspiciatis unde saepe non culpa? Reprehenderit, id amet! Dicta, animi et. </p>
-         <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repellat molestias quis adipisci enim, expedita saepe dolorum quos a minima, sapiente voluptate, porro officiis. Quis quisquam alias minus vel aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos voluptates libero ipsum corrupti quod, nisi quae reiciendis ab, maiores perspiciatis unde saepe non culpa? Reprehenderit, id amet! Dicta, animi et. </p>
-      </div>
-      <div class="bg-light pb-4 pt-4">
-         <div class="container bg-light">
-            <h3 class="pb-3">OUR SERVICES</h3>
-            <div class="row">
-               <div class="col-md-3">
-                  <div class="card" style="width: 18rem;">
-                     <img src="<?php echo base_url('public/images/box1.jpg') ?>" class="card-img-top" alt="...">
-                     <div class="card-body">
-                        <h5 class="card-title">Website Development</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="card" style="width: 18rem;">
-                     <img src="<?php echo base_url('public/images/box2.jpg') ?>" class="card-img-top" alt="...">
-                     <div class="card-body">
-                        <h5 class="card-title">Digitel Marketing</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="card" style="width: 18rem;">
-                     <img src="<?php echo base_url('public/images/box3.jpg') ?>" class="card-img-top" alt="...">
-                     <div class="card-body">
-                        <h5 class="card-title">Mobile App Development</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="card" style="width: 18rem;">
-                     <img src="<?php echo base_url('public/images/box4.jpg') ?>" class="card-img-top" alt="...">
-                     <div class="card-body">
-                        <h5 class="card-title">It Consulting Services</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
 
-      <div class="pb-5 pt-5">
-         <div class="container ">
-            <h3 class="pb-3">LATEST BLOGS</h3>
-            <div class="row">
-               <div class="col-md-3">
-                  <div class="card" style="width: 18rem;">
-                     <img src="<?php echo base_url('public/images/box1.jpg') ?>" class="card-img-top" alt="...">
-                     <div class="card-body">
-                        <h5 class="card-title">Website Development</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="card" style="width: 18rem;">
-                     <img src="<?php echo base_url('public/images/box2.jpg') ?>" class="card-img-top" alt="...">
-                     <div class="card-body">
-                        <h5 class="card-title">Digitel Marketing</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="card" style="width: 18rem;">
-                     <img src="<?php echo base_url('public/images/box3.jpg') ?>" class="card-img-top" alt="...">
-                     <div class="card-body">
-                        <h5 class="card-title">Mobile App Development</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="card" style="width: 18rem;">
-                     <img src="<?php echo base_url('public/images/box4.jpg') ?>" class="card-img-top" alt="...">
-                     <div class="card-body">
-                        <h5 class="card-title">It Consulting Services</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
 
-      <footer class="footer">
-  	 <div class="container">
-  	 	<div class="row">
-  	 		<div class="footer-col">
-  	 			<h4>company</h4>
-  	 			<ul class="p-0">
-  	 				<li><a href="#">about us</a></li>
-  	 				<li><a href="#">our services</a></li>
-  	 				<li><a href="#">privacy policy</a></li>
-  	 				<li><a href="#">affiliate program</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>get help</h4>
-  	 			<ul class="p-0">
-  	 				<li><a href="#">FAQ</a></li>
-  	 				<li><a href="#">shipping</a></li>
-  	 				<li><a href="#">returns</a></li>
-  	 				<li><a href="#">order status</a></li>
-  	 				<li><a href="#">payment options</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>online shop</h4>
-  	 			<ul class="p-0">
-  	 				<li><a href="#">watch</a></li>
-  	 				<li><a href="#">bag</a></li>
-  	 				<li><a href="#">shoes</a></li>
-  	 				<li><a href="#">dress</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>follow us</h4>
-  	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
-  	 				<a href="#"><i class="fab fa-twitter"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram"></i></a>
-  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
-  	 			</div>
-  	 		</div>
-  	 	</div>
-  	 </div>
-  </footer>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-   </body>
-</html>
+            <div id="latest-blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Latest blog posts</h2>
+                                <img src="<?php echo base_url('public/') ?>images/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <?php if (!empty($articles)) { ?>
+                            <?php foreach ($articles as $article_Row ) { ?>
+                                <?php 
+                                    $date_str = $article_Row['created_at'];
+                                    $date = new DateTime($date_str);
+                                    $formatted_date = $date->format('d M Y');
+                                ?>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <img src="<?php if (!empty($article_Row['image'])) {
+                      echo base_url().'public/uploads/articles/'. $article_Row['image'];
+                    } else
+                    {
+                      echo base_url().'public/uploads/articles/noimage.jpg';
+                    }
+                     ?>" alt="" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="content-show">
+                                        <h4><a href="<?php echo base_url('Page/detail/').$article_Row['id'] ?>"><?php echo $article_Row['title'] ?></a></h4>
+                                        <span><?php echo $formatted_date ?></span>
+                                    </div>
+                                    <div class="content-hide">
+                                        <p><?php echo $article_Row['description'] ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div id="latest-blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Our Services</h2>
+                                <img src="<?php echo base_url('public/') ?>images/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <img src="<?php echo base_url('public/') ?>images/blogpost1.jpg" alt="" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="content-show">
+                                        <h4><a href="single-post.html">Summer Sandwich</a></h4>
+                                        <span>29 Sep 2084</span>
+                                    </div>
+                                    <div class="content-hide">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <img src="<?php echo base_url('public/') ?>images/blogpost2.jpg" alt="" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="content-show">
+                                        <h4><a href="single-post.html">New Great Taste</a></h4>
+                                        <span>23 Sep 2084</span>
+                                    </div>
+                                    <div class="content-hide">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <img src="<?php echo base_url('public/') ?>images/blogpost3.jpg" alt="" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="content-show">
+                                        <h4><a href="single-post.html">Spicy Pizza</a></h4>
+                                        <span>14 Sep 2084</span>
+                                    </div>
+                                    <div class="content-hide">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <img src="<?php echo base_url('public/') ?>images/blogpost4.jpg" alt="" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="content-show">
+                                        <h4><a href="single-post.html">Healthy Food</a></h4>
+                                        <span>25 Aug 2084</span>
+                                    </div>
+                                    <div class="content-hide">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <img src="<?php echo base_url('public/') ?>images/blogpost5.jpg" alt="" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="content-show">
+                                        <h4><a href="single-post.html">Great Breakfast</a></h4>
+                                        <span>17 Aug 2084</span>
+                                    </div>
+                                    <div class="content-hide">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <img src="<?php echo base_url('public/') ?>images/blogpost6.jpg" alt="" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="content-show">
+                                        <h4><a href="single-post.html">Fresh Fruit Juice</a></h4>
+                                        <span>12 Aug 2084</span>
+                                    </div>
+                                    <div class="content-hide">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="testimonails">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>What Customers Say</h2>
+                                <img src="<?php echo base_url('public/') ?>images/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="testimonails-slider">
+                              <ul class="slides">
+                                <li>
+                                    <div class="testimonails-content">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                        <h6>Jennifer - <a href="#">Chief Designer</a></h6>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="testimonails-content">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                        <h6>Laureen - <a href="#">Marketing Executive</a></h6>
+                                    </div> 
+                                </li>
+                                <li>
+                                    <div class="testimonails-content">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                        <h6>Tanya - <a href="#">Creative Director</a></h6>
+                                    </div>
+                                </li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php $this->load->view('front/footer.php'); ?>

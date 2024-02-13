@@ -41,7 +41,7 @@ class Articles extends CI_Controller {
 		$data['articles'] = $articles;
 		$data['pagination_links'] = $pagination_links;
 		// $data['queryString'] = $queryString;
-		$this->load->view('admin/Articles/list',$data,);
+		$this->load->view('admin/Articles/list',$data);
 	}
     public function create()
 	{
@@ -162,9 +162,6 @@ class Articles extends CI_Controller {
 					$formArray['author'] = $this->input->post('author');
 					$formArray['status'] = $this->input->post('status');
 					$formArray['updated_at'] = date('Y-m-d H:i:s');
-					echo "<pre>";
-					print_r($formArray['description']);
-					echo "</pre>";die();
 					$this->Article_model->updateArticle($id,$formArray);
 
 					if (file_exists('./public/uploads/articles/'.$articles[0]['image'])) {
@@ -178,7 +175,7 @@ class Articles extends CI_Controller {
                     }
 
 					$this->session->set_flashdata('success','Articles Updeted Successfuly');
-					redirect(base_url('admin/Articles/index'));
+					redirect(base_url('admin/articles/index'));
 
 				}
 				else
@@ -210,27 +207,35 @@ class Articles extends CI_Controller {
 		
 	}
     public function delete($id)
-	{
-		$this->load->model('Article_model');
-        $articles = $this->Article_model->deleteArticle($id);
-        
-        if (empty($articles)) {
-            $this->session->set_flashdata('error','Article Not Found');
-            redirect(base_url('admin/Articles/index'));
-        }
-
-        if (file_exists('./public/uploads/articles/'.$articles[0]['image'])) {
-            unlink('./public/uploads/articles/'.$articles[0]['image']);
-        }
-        if (file_exists('./public/uploads/articles/thumb_front/'.$articles[0]['image'])) {
-            unlink('./public/uploads/articles/thumb_front/'.$articles[0]['image']);
-        }
-		if (file_exists('./public/uploads/articles/thumb_admin/'.$articles[0]['image'])) {
-            unlink('./public/uploads/articles/thumb_admin/'.$articles[0]['image']);
-        }
-        $this->Article_model->delete($id);
-        $this->session->set_flashdata('success','articles Deleted Successfuly');
+{
+    $this->load->model('Article_model');
+    $articles = $this->Article_model->getArticles($id);
+    if (empty($articles)) {
+        $this->session->set_flashdata('error', 'Article Not Found');
         redirect(base_url('admin/Articles/index'));
-		
-	}
+    }
+
+    // Print image filename for debugging
+    print_r($articles[0]['image']);
+
+    // Remove exit statement
+
+    // Delete associated images if they exist
+    if (file_exists('./public/uploads/articles/' . $articles[0]['image'])) {
+        unlink('./public/uploads/articles/' . $articles[0]['image']);
+    }
+    if (file_exists('./public/uploads/articles/thumb_front/' . $articles[0]['image'])) {
+        unlink('./public/uploads/articles/thumb_front/' . $articles[0]['image']);
+    }
+    if (file_exists('./public/uploads/articles/thumb_admin/' . $articles[0]['image'])) {
+        unlink('./public/uploads/articles/thumb_admin/' . $articles[0]['image']);
+    }
+
+    // Delete the article from the database
+    $this->Article_model->deleteArticle($id);
+
+    $this->session->set_flashdata('success', 'Article deleted successfully');
+    redirect(base_url('admin/articles/index'));
+}
+
 }

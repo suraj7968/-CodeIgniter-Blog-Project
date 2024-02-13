@@ -15,7 +15,6 @@ class Category extends CI_Controller {
 	} 
     public function create()
     {
-
         $config['upload_path']          = './public/uploads/category/';
         $config['allowed_types']        = 'gif|jpg|png';
         // $config['max_size']             = 10000;
@@ -146,6 +145,7 @@ class Category extends CI_Controller {
     {
         $this->load->model('Category_model');
         $category = $this->Category_model->getcategory($id);
+        print_r($category); exit;
         
         if (empty($category)) {
             $this->session->set_flashdata('error','Category Not Found');

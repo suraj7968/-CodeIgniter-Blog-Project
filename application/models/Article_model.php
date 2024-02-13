@@ -32,10 +32,57 @@ class Article_model extends CI_Model {
         $this->db->where('id',$id);
         $this->db->update('articles',$formArray);
     }
-    public function deleteArticle($id){
-        $this->db->where('id',$id);
+    public function deleteArticle($id) {
+        $this->db->where('id', $id);
         $this->db->delete('articles');
     }
+    
+
+
+    // Front Methods
+    public function getArticleFront($param=array()){
+        // if (!empty($params['queryString'])) {
+        //     $this->db->like('author',$params['queryString']);
+        // }
+        if (isset($param['offset']) && isset($param['limit'])) {
+            $this->db->limit($param['offset'],$param['limit']);
+        }
+        $query = $this->db->get('articles');
+        // echo $this->db->last_query();
+        $result = $query->result_array();
+        return $result;
+    }
+
+    public function getArticleBlog($param = array()) {
+        // if (!empty($params['queryString'])) {
+        //     $this->db->like('author', $params['queryString']);
+        // }
+        if (isset($param['offset']) && isset($param['limit'])) {
+            $this->db->limit($param['offset'], $param['limit']);
+        }
+        $this->db->select('articles.*, categories.name as category_name');
+        $this->db->from('articles');
+        $this->db->join('categories', 'articles.category = categories.id', 'left');
+        $query = $this->db->get();
+        // echo $this->db->last_query();
+        $result = $query->result_array();
+        return $result;
+    }
+
+    public function getArticlesDetail($id){
+        $this->db->where('articles.id', $id);
+        $this->db->select('articles.*, categories.name as category_name');
+        $this->db->from('articles');
+        $this->db->join('categories', 'articles.category = categories.id', 'left');
+        $query = $this->db->get();
+        // echo $this->db->last_query();
+        $result = $query->result_array();
+        return $result;
+    }    
+    
+    
+
+
     
 }
 ?>
