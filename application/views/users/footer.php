@@ -51,6 +51,7 @@
     <script src="<?php echo base_url('public/users/') ?>assets/vendor/js/bootstrap.js"></script>
     <script src="<?php echo base_url('public/users/') ?>assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="<?php echo base_url('public/users/') ?>assets/vendor/js/menu.js"></script>
+    <script src="<?php echo base_url('public/users/') ?>custom.js"></script>
 
     <!-- endbuild -->
 

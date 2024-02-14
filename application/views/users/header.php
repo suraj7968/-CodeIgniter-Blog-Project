@@ -37,6 +37,7 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="<?php echo base_url('public/users/') ?>assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="<?php echo base_url('public/users/') ?>assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="<?php echo base_url('public/users/') ?>custom.css">
 
     <!-- Page CSS -->
 
@@ -55,7 +56,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="<?php base_url('users/UserDashboard/index') ?>" class="app-brand-link">
+            <a href="<?php echo base_url('users/UserDashboard/index') ?>" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
@@ -117,8 +118,8 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
-            <li class="menu-item active open">
-              <a href="<?php base_url('users/UserDashboard/index') ?>" class="menu-link menu-toggle">
+            <li class="menu-item">
+              <a href="<?php echo base_url('users/UserDashboard/index') ?>" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
               </a>
@@ -151,33 +152,58 @@
 
             <!-- Front Pages -->
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <a href="javascript:void(0);" class="menu-link menu-toggle ">
                 <i class="menu-icon tf-icons bx bx-store"></i>
                 <div data-i18n="Front Pages">Articles</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a
-                    href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/front-pages/checkout-page.html"
-                    class="menu-link"
-                    target="_blank">
+                    href="<?php echo base_url('users/Articles/create') ?>"
+                    class="menu-link">
                     <div data-i18n="Checkout">Add Articles</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a
-                    href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/front-pages/help-center-landing.html"
-                    class="menu-link"
-                    target="_blank">
+                    href="<?php echo base_url('users/Articles/list') ?>"
+                    class="menu-link">
                     <div data-i18n="Help Center">View Articles</div>
                   </a>
                 </li>
               </ul>
             </li>
+            <li class="menu-item">
+              <a href="<?php echo base_url('users/UserDashboard/account') ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Account Setting</div>
+              </a>
+            </li>
 
           </ul>
         </aside>
         <!-- / Menu -->
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            // Get all menu links
+            var menuLinks = document.querySelectorAll('.menu-item');
+            
+            // Loop through each menu link
+            menuLinks.forEach(function(link) {
+              // Add click event listener
+              link.addEventListener('click', function(event) {
+                // Remove active class from all menu links
+                menuLinks.forEach(function(link) {
+                  link.classList.remove('active');
+                });
+                
+                // Add active class to the clicked link
+                this.classList.add('active');
+              });
+            });
+          });
+</script>
+
 
         <!-- Layout container -->
         <div class="layout-page">
@@ -262,24 +288,9 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-user me-2"></i>
-                        <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="<?php echo base_url('users/UserDashboard/account') ?>">
                         <i class="bx bx-cog me-2"></i>
                         <span class="align-middle">Settings</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <span class="d-flex align-items-center align-middle">
-                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                          <span class="flex-grow-1 align-middle ms-1">Billing</span>
-                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                        </span>
                       </a>
                     </li>
                     <li>

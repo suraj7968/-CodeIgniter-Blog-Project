@@ -5,8 +5,7 @@
 <!-- Content -->
 
   <div class="container-xxl flex-grow-1 container-p-y">
-    
-    
+
 <h4 class="py-3 mb-4">
 <span class="text-muted fw-light">Add</span> Category
 </h4>
@@ -18,12 +17,13 @@
 <h5 class="card-header">Category</h5>
 <div class="card-body">
 
-<form id="formValidationExamples" class="row g-3">
+<form action="<?php echo base_url('users/Category/create') ?>" method="post" enctype="multipart/form-data" class="row">
 
 
   <div class="col-md-6">
     <label class="form-label" for="formValidationName">Category Name</label>
-    <input type="text" id="formValidationName" class="form-control" placeholder="Enter Category Name" name="formValidationName" />
+    <input type="text" id="formValidationName" value="<?php echo set_value('name'); ?>" class="form-control" placeholder="Enter Category Name" name="name" />
+    <?php echo form_error('name'); ?>
   </div>
 
 
@@ -31,7 +31,9 @@
 
   <div class="col-md-12">
     <label for="formValidationFile" class="form-label">Category Image</label>
-    <input class="form-control" type="file" id="formValidationFile" name="formValidationFile">
+    <input class="form-control" type="file" id="image" name="image">
+    <?php echo (!empty($errorImageUpload)) ? $errorImageUpload : ''; ?>
+    
   </div>
   <div class="col-md-12">
     <label class="form-label">Status</label>
@@ -47,7 +49,7 @@
   </div>
 
   <div class="col-12">
-    <button type="submit" name="submitButton" class="btn btn-primary">Submit</button>
+    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
 </div>

@@ -6,6 +6,14 @@ class UserDashboard extends CI_Controller {
 	{
 		$this->load->view('users/userDashboard');
 	}
+	public function account()
+	{
+		$this->load->model('Users_model');
+		$userid = $this->session->userdata('userid');
+		$userinfo = $this->Users_model->fetchuser($userid);
+		$data['userinfo'] = $userinfo;
+		$this->load->view('users/accountSetting',$data);
+	}
 	
     public function logout()
 	{

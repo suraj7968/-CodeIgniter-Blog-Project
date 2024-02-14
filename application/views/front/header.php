@@ -23,14 +23,14 @@
 
             <header>
                 <div id="main-header">
-                    <div class="container">
+                    <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="logo">
                                     <a href="#"><img src="<?php echo base_url('public/') ?>images/logo.png" title="Grill Template" alt="Grill Website Template" ></a>
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <div class="main-menu">
                                     <ul>
                                         <li><a href="<?php echo base_url('Home/index') ?>">Home</a></li>
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <div class="main-menu">
                                     <ul>
                                         <li><a href="<?php echo base_url('users/Manageusers/register') ?>">Register</a></li>
